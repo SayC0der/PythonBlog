@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<title> {{ article.title }} </title>
+    <div class="my-2">
+        <div>
+            <img src="{{ article.photo.url }}" class="card-img rounded" alt="Responsive image">
+        </div>
+        <div class="text-center">
+            <p class="mt-3">
+                <h3>{{ article.title }}</h3>
+                <span class="badge badge-secondary">{{ article.category }}</span>
+                <span class="badge badge-secondary">{{ article.date|date }}</span>
+            </p>
+        </div>
+
+        <hr>
+        <p class="lead">{{ article.body|safe }}</p>
+        <hr>
+        <div class="float-left mx-3">
+            <div class="fb-like" data-href="{% url 'board_topics' article.id %}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+            <hr>
+            <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/article/{{article.id}}" data-numposts="5" data-width=""></div>
+            <hr>
+        </div>
+    </div>
+
+{% endblock %}
+

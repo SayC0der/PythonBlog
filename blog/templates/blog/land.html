@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+    <div class="container my-2">
+        <div class="d-flex justify-content-center">
+            <img src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/d7_images/slates/loyola-socialmedia-world-language-thinkstock.gif" class="img-fluid rounded mt-2" alt="Responsive image">
+        </div>
+        <p class="lead mt-3 text-center">
+           Default language is english !
+        </p>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'bloger' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Go</a>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <title>{{ farticle }}</title>
+
+    {% for post in farticle.categorypost.all %}
+        <div class="bg-light border px-2 py-2 my-3 rounded">
+            <div class="ml-1">
+                <a href="{% url 'board_topics' post.id %}">{{ post }}</a>
+            </div>
+            <div class="ml-1">
+                <small>{{ post.date|date }}</small>
+            </div>
+            <hr class="alert-secondary">
+            <div class="container">
+                <img src="{{ post.photo.url }}" class="img-fluid">
+            </div>
+
+            <hr class="alert-secondary">
+            <div class="fb-like pb-2 pl-3" data-href="{% url 'board_topics' post.id %}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"> </div>
+        </div>
+
+    {% endfor %}
+  <div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+        </div>
+
+
+
+{% endblock %}

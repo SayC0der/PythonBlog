@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content%}
+    {% for article in articles %}
+                <div class="card my-2">
+                  <img src="{{article.photo.url}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <a href="{% url 'board_topics' article.id %}">{{article.title}}</a>
+                      <small> {{article.date|date}} </small>
+                    <hr>
+                    <a class="btn btn-outline-primary col-2 ml-4 my-2 align-right" href="{% url 'board_topics' article.id %}" role="button">Read more...</a>
+                  </div>
+                </div>
+    {% endfor %}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if articles.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ article.previous_page_number }}">previous</a></li>
+            {% endif %}
+
+            <li class="page-item">
+                <a class="page-link" href="#">Page {{ articles.number }} of {{ articles.paginator.num_pages }}</a>
+            </li>
+
+            {% if articles.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ articles.next_page_number }}">next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ articles.paginator.num_pages }}">last &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

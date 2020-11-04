@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+    <div class="container">
+        {% for element in cat %}
+            <div class="row border rounded mt-3 py-3 px-3 bg-light ">
+                <a href="{% url 'filter' element.id %}">{{ element.name }}</a>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+
+    {% endblock %}
